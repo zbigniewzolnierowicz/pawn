@@ -1,7 +1,7 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, Request
 
 router = APIRouter()
 
-@router.get("/")
-def get_user(email: str):
+@router.post("/create")
+async def create_user():
     return
