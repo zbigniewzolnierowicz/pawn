@@ -6,8 +6,7 @@ app = FastAPI()
 
 app.include_router(auth_router, prefix="/auth")
 
+
 @app.get("/ping")
 async def ping():
-    return {
-        "message": "pong!"
-    }
+    return {"message": "pong!"}
