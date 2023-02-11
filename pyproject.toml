@@ -21,6 +21,7 @@ httpx = "^0.23.3"
 ruff = "^0.0.243"
 black = "^23.1.0"
 alembic = "^1.9.3"
+pytest-sugar = "^0.9.6"
 
 [build-system]
 requires = ["poetry-core"]
