@@ -1,8 +1,10 @@
+from pydantic import EmailStr
+
 from server.utils import PydanticBase
 
 
 class UserBase(PydanticBase):
-    email: str
+    email: EmailStr
 
 
 class CreateUser(UserBase):
@@ -10,7 +12,6 @@ class CreateUser(UserBase):
 
 
 class UserTokenRequest(UserBase):
-    email: str
     password: str
 
 
