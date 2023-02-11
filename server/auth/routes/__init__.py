@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -11,11 +11,11 @@ router = APIRouter()
 @router.post("/create")
 async def create_user(
     user_to_create: schemas.CreateUser, db: Session = Depends(get_db)
-) -> schemas.PublicUserData | dict[str,str]:
+):
     try:
         db_user = models.UserModel(
             email=user_to_create.email,
-            password_hash=user_to_create.password + "fakehash"
+            password_hash=user_to_create.password + "fakehash",
         )
         db.add(db_user)
         db.commit()
@@ -24,6 +24,8 @@ async def create_user(
         return public_user
     except IntegrityError:
         db.rollback()
-        return {
-            "message": "User already exists.",
-        }
+        raise HTTPException(status_code=403, detail="User already exists.")
+    except Exception:
+        raise HTTPException(
+            status_code=500, detail="There was an internal database error."
+        )
