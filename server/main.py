@@ -4,7 +4,7 @@ from .auth.routes import router as auth_router
 
 app = FastAPI(
     title="Poet",
-    description="A sorta social media site"
+    description="A sorta social media site",
 )
 
 app.include_router(auth_router, prefix="/auth")

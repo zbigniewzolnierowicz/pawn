@@ -6,3 +6,5 @@ dev:
 	uvicorn server.main:app --reload
 lint:
 	ruff check server
+lint:fix:
+	ruff check server --fix
