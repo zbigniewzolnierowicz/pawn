@@ -8,3 +8,5 @@ lint:
 	ruff check server
 lint-fix:
 	ruff check server --fix
+init:
+	pre-commit install
