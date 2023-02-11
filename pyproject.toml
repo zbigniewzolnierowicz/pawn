@@ -13,6 +13,7 @@ fastapi = "^0.89.1"
 sqlalchemy = "^2.0.2"
 ruff-lsp = "^0.0.17"
 pydantic = "^1.10.4"
+http-constants = "^0.5.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -24,7 +25,7 @@ alembic = "^1.9.3"
 pytest-sugar = "^0.9.6"
 
 [tool.ruff]
-select = ["F", "COM", "TRY", "I", "ANN", "UP", "S"]
+select = ["F", "COM", "TRY", "I", "ANN", "UP", "S", "N", "PLR"]
 
 [tool.ruff.per-file-ignores]
 "**/test_*.py" = ["S101"]

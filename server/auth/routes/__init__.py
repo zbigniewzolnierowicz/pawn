@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
+from http_constants.status import HttpStatus
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -22,10 +23,10 @@ async def create_user(
         db.refresh(db_user)
     except IntegrityError as ex:
         db.rollback()
-        raise HTTPException(status_code=403, detail="User already exists.") from ex
+        raise HTTPException(status_code=HttpStatus.FORBIDDEN, detail="User already exists.") from ex
     except Exception as ex:
         raise HTTPException(
-            status_code=500, detail="There was an internal database error.",
+            status_code=HttpStatus.INTERNAL_SERVER_ERROR, detail="There was an internal database error.",
         ) from ex
     else:
         public_user = schemas.PublicUserData(**db_user.__dict__)

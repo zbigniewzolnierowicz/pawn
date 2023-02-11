@@ -270,6 +270,17 @@ files = [
 ]
 
 [[package]]
+name = "http-constants"
+version = "0.5.0"
+description = "The set of standard http constants for headers and statuses"
+category = "main"
+optional = false
+python-versions = ">=3.6.0"
+files = [
+    {file = "http-constants-0.5.0.tar.gz", hash = "sha256:151cb595a0964110ee51e1f5bf09c1b30b025de37f32688f3d0ca58fc8dae43e"},
+]
+
+[[package]]
 name = "httpcore"
 version = "0.16.3"
 description = "A minimal low-level HTTP client."
@@ -1135,4 +1146,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.12"
-content-hash = "2b886d5fcc2520d2c3ef822c3e7e24bfac475472731a6e1fa63c27dd8102b41f"
+content-hash = "3b2ae390d53e6877a852ceffbe9deb134a52f6438fc6fbd11fc63fa09c2f140b"
