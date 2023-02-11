@@ -3,7 +3,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from server.db import Base, get_db
-
 from server.main import app
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
@@ -21,6 +20,10 @@ def override_get_db():
         yield db
     finally:
         db.close()
+
+def wipe_db():
+    Base.metadata.drop_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
 
 
 app.dependency_overrides[get_db] = override_get_db
