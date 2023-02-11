@@ -1,4 +1,4 @@
-from typing import Iterator
+from collections.abc import Iterator
 
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
