@@ -11,5 +11,5 @@ app.include_router(auth_router, prefix="/auth")
 
 
 @app.get("/ping")
-async def ping():
+async def ping() -> dict[str, str]:
     return {"message": "pong!"}

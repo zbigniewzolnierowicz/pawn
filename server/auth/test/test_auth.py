@@ -1,7 +1,7 @@
 from server.utils.test import test_client, wipe_db
 
 
-def test_create_user():
+def test_create_user() -> None:
     wipe_db()
     body = {"email": "foo@bar.com", "password": "test"}
     response = test_client.post(
@@ -11,7 +11,7 @@ def test_create_user():
     assert response.status_code == 200
     assert response.json()["email"] == "foo@bar.com"
 
-def test_creating_an_exiting_user_returns_message():
+def test_creating_an_exiting_user_returns_message() -> None:
     wipe_db()
     body = {"email": "foo@bar.com", "password": "test"}
     response = test_client.post(

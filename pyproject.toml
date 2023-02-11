@@ -24,7 +24,7 @@ alembic = "^1.9.3"
 pytest-sugar = "^0.9.6"
 
 [tool.ruff]
-select = ["F", "COM", "TRY", "I"]
+select = ["F", "COM", "TRY", "I", "ANN"]
 
 [build-system]
 requires = ["poetry-core"]

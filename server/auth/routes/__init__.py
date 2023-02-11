@@ -11,7 +11,7 @@ router = APIRouter()
 @router.post("/create")
 async def create_user(
     user_to_create: schemas.CreateUser, db: Session = Depends(get_db),
-):
+) -> schemas.PublicUserData:
     db_user = models.UserModel(
         email=user_to_create.email,
         password_hash=user_to_create.password + "fakehash",
