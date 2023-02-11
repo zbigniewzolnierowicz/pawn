@@ -1,9 +1,10 @@
-import pytest
 import sys
-import os
+from pathlib import Path
+
+import pytest
 
 if __name__ == "__main__":
-    if os.path.isfile("test.db"):
+    if Path("test.db").is_file():
         print("Detected an exisiting testing database - deleting it.")
-        os.remove("test.db")
+        Path("test.db").unlink()
     sys.exit(pytest.main([]))

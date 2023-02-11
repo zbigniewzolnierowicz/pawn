@@ -4,7 +4,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from server.auth import models, schemas
-from server.db import get_db
+from server.utils.db import get_db
 
 router = APIRouter()
 

@@ -5,8 +5,8 @@ run:
 dev:
 	uvicorn server.main:app --reload
 lint:
-	ruff check server
+	ruff check .
 lint-fix:
-	ruff check server --fix
+	ruff check . --fix
 init:
 	pre-commit install
