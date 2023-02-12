@@ -13,8 +13,6 @@ engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False},
 )
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base.metadata.create_all(bind=engine)
-
 
 def override_get_db() -> Iterator[Session]:
     try:
@@ -26,6 +24,8 @@ def override_get_db() -> Iterator[Session]:
 def wipe_db() -> None:
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
+
+wipe_db()
 
 app.dependency_overrides[get_db] = override_get_db
 
