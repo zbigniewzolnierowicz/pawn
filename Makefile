@@ -1,5 +1,6 @@
 test:
-	python hack/test.py
+	rm -f test.db
+	coverage run -m pytest
 run:
 	uvicorn server.main:app
 dev:
