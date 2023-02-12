@@ -25,6 +25,7 @@ coverage = "^7.1.0"
 
 [tool.ruff]
 select = ["F", "COM", "TRY", "I", "ANN", "UP", "S", "N", "PL", "TID", "PTH", "ERA", "RUF", "TRY"]
+src = ["server", "migrations"]
 
 [tool.ruff.flake8-type-checking]
 strict = true
