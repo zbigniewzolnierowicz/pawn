@@ -1,6 +1,6 @@
 test:
 	rm -f test.db
-	coverage run -m pytest
+	pytest
 run:
 	uvicorn server.main:app
 dev:

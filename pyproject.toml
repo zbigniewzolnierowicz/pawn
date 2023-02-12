@@ -21,7 +21,13 @@ httpx = "^0.23.3"
 ruff = "^0.0.243"
 alembic = "^1.9.3"
 pytest-sugar = "^0.9.6"
-coverage = "^7.1.0"
+pytest-cov = "^4.0.0"
+
+[tool.pytest.ini_options]
+addopts = [
+	"--cov",
+	"--cov-report=xml"
+]
 
 [tool.ruff]
 select = ["F", "COM", "TRY", "I", "ANN", "UP", "S", "N", "PL", "TID", "PTH", "ERA", "RUF", "TRY"]
