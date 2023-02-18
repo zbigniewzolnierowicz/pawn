@@ -1,6 +1,8 @@
 test:
 	rm -f test.db
-	pytest
+	pytest --cov
+type:
+	mypy . --enable-incomplete-feature=Unpack
 run:
 	uvicorn server.main:app
 dev:

@@ -25,4 +25,4 @@ def test_creating_an_exiting_user_returns_message() -> None:
         "/auth/create",
         json=body,
     )
-    assert response.status_code == HttpStatus.FORBIDDEN
+    assert response.status_code == HttpStatus.CONFLICT
